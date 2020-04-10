@@ -1,38 +1,138 @@
+@import url(https://fonts.googleapis.com/css?family=Gloria + Hallelujah);
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+textarea:focus,
+input:focus {
+  outline: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+*:focus {
+  outline: none;
 }
-
+* {
+  font-family: "Gloria Hallelujah", cursive;
+}
 .App-header {
-  background-color: #282c34;
+  background-color: #353535;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 15px;
+  color: black;
+}
+.heading {
+  font-weight: bold;
+  border-bottom: 1.5px dashed #e6b458;
+  padding-bottom: 10px;
+  width: 100%;
+  text-transform: capitalize;
+}
+button {
+  background: none;
+  border: 1px dashed black;
+  font-weight: bold;
+  color: black;
+  cursor: pointer;
+  margin: 0 10px;
+  text-transform: capitalize;
+}
+.title {
+  font-weight: bold;
   color: white;
+  text-shadow: 3px 1px 5px rgb(197, 212, 203);
+}
+.todo-item {
+  width: 65%;
+  margin-left: 20px;
+  padding: 0 15px;
+  font-weight: bold;
+  display: inline-block;
+}
+input[type="text"] {
+  height: 30px;
+  width: 65%;
+  border-radius: 3px;
+  border: none;
+  margin-left: 20px;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.02);
+  padding: 0 15px;
+}
+.completed {
+  text-decoration: line-through;
+  color: black;
+}
+.wrapper {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: left;
+  background: white;
+  padding: 10px;
+  background: linear-gradient(#f9efaf, #f7e98d);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.wrapper:hover {
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15);
+}
+.info {
+  text-align: center;
+  color: #d8b96d;
+  font-weight: bold;
 }
 
-.App-link {
-  color: #61dafb;
+.container {
+  display: inline;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+
+  font-size: 22px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border: 1px dashed black;
+  background-color: transparent;
+}
+
+.container input:checked ~ .checkmark {
+  background-color: transparent;
+  border: 1px dashed black;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  left: 14px;
+  top: -10px;
+  width: 7px;
+  height: 25px;
+  border: solid green;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(52deg);
+  -ms-transform: rotate(52deg);
+  transform: rotate(52deg);
 }
