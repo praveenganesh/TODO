@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TodoItem from "../TodoItem";
 
 function TODO(props) {
   const [checked, setChecked] = useState(props.completed ? true : false);
   const [editMode, setEditMode] = useState(false);
   let [edititngField, setEditingField] = useState(props.value);
-  let { biz } = props;
 
+  let { biz } = props;
+  useEffect(() => {
+    setEditingField(props.value);
+  }, [props.value]);
   return (
     <div>
       <label className="container">
